@@ -13,3 +13,12 @@
 - setup dev script: `nodemon server.ts`
 
 - setup eslint `npm init @eslint/config`
+
+- setup prettier for code formatting
+
+# SETUP EXPRESS SERVER
+
+- We will setup express server for API creation
+- The server should be up & running continuously to serve client requests
+
+- `npm i express` & `npm i -D @types/express`
