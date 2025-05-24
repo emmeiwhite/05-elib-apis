@@ -22,3 +22,33 @@
 - The server should be up & running continuously to serve client requests
 
 - `npm i express` & `npm i -D @types/express`
+
+## How to start express server?
+
+- Make sure to create a src folder and create `app.ts` file:
+
+- Then setup express app
+
+```
+   import express from "express";
+
+   const app = express();
+
+   export default app;
+```
+
+- Then import the app in server.ts file and startServer neatly:
+
+```
+import app from "./src/app";
+
+const startServer = () => {
+  const port = process.env.PORT || 3000;
+
+  app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+  });
+};
+
+startServer();
+```
