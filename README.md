@@ -8,10 +8,6 @@ This project sets up a clean and scalable backend using **TypeScript**, **Expres
 npm init
 ```
 
-```
-
-```
-
 Install development dependencies:
 
 ```bash
