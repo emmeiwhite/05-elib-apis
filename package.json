@@ -4,7 +4,7 @@
   "description": "this is an express mongoose project to create books api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.ts"
   },
   "keywords": [
     "rest-apis",
@@ -14,9 +14,13 @@
   "author": "Imran R R <imranrafiqrather@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.27.0",
     "@types/node": "^22.15.21",
+    "eslint": "^9.27.0",
+    "globals": "^16.1.0",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1"
   }
 }

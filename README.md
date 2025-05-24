@@ -7,3 +7,9 @@
 
 - After installation setup the `tsconfig` file
   `npx tsc --init`
+
+- added gitignore extension to generate .gitignore file
+
+- setup dev script: `nodemon server.ts`
+
+- setup eslint `npm init @eslint/config`
