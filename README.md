@@ -84,3 +84,48 @@ const startServer = () => {
 
 startServer();
 ```
+
+## Understanding config.ts and dotenv Setup in TypeScript Projects
+
+In small Node/Express projects, we typically access environment variables directly like this:
+
+```ts
+import dotenv from "dotenv";
+dotenv.config();
+
+console.log(process.env.PORT); // ✅ This works
+```
+
+✅ What's the purpose of config.ts?
+
+For larger or scalable projects, it's a good practice to separate your configuration into a centralized file like config.ts:
+
+```ts
+// src/config/config.ts
+import { config as conf } from "dotenv";
+conf();
+
+const _config = {
+  port: process.env.PORT,
+};
+
+export const config = Object.freeze(_config);
+```
+
+🧠 Why use \_config and Object.freeze()?
+
+| Feature              | Why it's used                                                               |
+| -------------------- | --------------------------------------------------------------------------- |
+| `_config`            | Gathers all `.env` variables in one place.                                  |
+| `Object.freeze()`    | Makes the `config` object read-only — preventing accidental changes.        |
+| Separate `config.ts` | Keeps your app clean, centralized, and easier to manage in large codebases. |
+
+✅ How to use?
+
+You can now import your configuration values like this:
+
+```ts
+import { config } from "./src/config/config";
+
+console.log(config.port); // Safe and clean
+```
