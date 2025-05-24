@@ -29,26 +29,22 @@
 
 - Then setup express app
 
-```
-   import express from "express";
+  import express from "express";
 
-   const app = express();
+  const app = express();
 
-   export default app;
-```
+  export default app;
 
 - Then import the app in server.ts file and startServer neatly:
 
-```
 import app from "./src/app";
 
 const startServer = () => {
-  const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-  app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
-  });
+app.listen(port, () => {
+console.log(`Server is listening on port ${port}`);
+});
 };
 
 startServer();
-```
