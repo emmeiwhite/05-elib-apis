@@ -1,11 +1,6 @@
 # 🚀 Backend Setup with TypeScript and Express
 
 This project sets up a clean and scalable backend using **TypeScript**, **Express**, **Nodemon**, **ESLint**, and **Prettier**.
-Certainly, brother 🤝 — here is your complete and well-formatted `README.md` file rewritten in proper Markdown format. You can copy and paste this **entire block** directly into your `README.md`.
-
-# 🚀 Backend Setup with TypeScript and Express
-
-This project sets up a clean and scalable backend using **TypeScript**, **Express**, **Nodemon**, **ESLint**, and **Prettier**.
 
 ## 🛠️ Initial Setup
 
