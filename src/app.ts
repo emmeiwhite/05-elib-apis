@@ -5,6 +5,10 @@ import userRouter from "./user/userRouter";
 
 const app = express();
 
+// register express.json() to parse req.body
+
+app.use(express.json());
+
 // Test  Route:
 app.get("/", (req, res, next) => {
   const error = createHttpError();
