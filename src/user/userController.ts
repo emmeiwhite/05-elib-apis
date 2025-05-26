@@ -1,11 +1,12 @@
 import { NextFunction, Request, Response } from "express";
-import createHttpError, { HttpError } from "http-errors";
+import createHttpError from "http-errors";
 import { userModal } from "./userModel";
 import bcrypt from "bcrypt";
 import { config } from "../config/config";
 
 import { sign } from "jsonwebtoken";
 
+// 1. Register User
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   const { name, email, password } = req.body;
   // 1. Validation
@@ -23,7 +24,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       const error = createHttpError(400, "User already exists with this email");
       return next(error);
     }
-  } catch (error) {
+  } catch (err) {
     return next(createHttpError(500, "Error while getting user"));
   }
 
@@ -41,7 +42,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       email,
       password: hashedPassword,
     });
-  } catch (error) {
+  } catch (err) {
     return next(createHttpError(500, "Error while creating resource"));
   }
 
@@ -60,4 +61,11 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export { createUser };
+// 2. Login User
+const loginUser = async (req: Request, res: Response, next: NextFunction) => {
+  res.json({
+    message: "User Successfully logged in",
+  });
+};
+
+export { createUser, loginUser };
