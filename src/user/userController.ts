@@ -39,7 +39,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
   /** Because we send back the response, we need to generate Token */
 
   // Token Generation: JWT token to be generated
-
+  const token = sign({ sub: newUser._id });
   // 3. Response
   res.json({ id: newUser._id });
 };
