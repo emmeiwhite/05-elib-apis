@@ -2,6 +2,10 @@ import { NextFunction, Request, Response } from "express";
 import createHttpError from "http-errors";
 import { userModal } from "./userModel";
 import bcrypt from "bcrypt";
+import { config } from "../config/config";
+
+import { sign } from "jsonwebtoken";
+
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
   const { name, email, password } = req.body;
   // 1. Validation
@@ -39,9 +43,12 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
   /** Because we send back the response, we need to generate Token */
 
   // Token Generation: JWT token to be generated
-  const token = sign({ sub: newUser._id });
+  const token = sign({ sub: newUser._id }, config.jwtSecret as string, {
+    expiresIn: "7d",
+  });
+
   // 3. Response
-  res.json({ id: newUser._id });
+  res.status(201).json({ message: "User Created", accessToken: token });
 };
 
 export { createUser };
