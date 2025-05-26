@@ -16,7 +16,7 @@ const connectDB = async () => {
     /** --- CONNECTION STRING DOING ITS JOB --- */
     await mongoose.connect(config.dbUrl as string);
   } catch (error) {
-    console.log("Failed to connect to databse ", error);
+    console.log("Failed to connect to database ", error);
 
     // If no connection is made with the databse, then there is no point keeping the server open
     process.exit(1);
