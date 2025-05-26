@@ -1,6 +1,6 @@
-import { config } from "./config/config";
-import express, { NextFunction, Request, Response } from "express";
-import createHttpError, { HttpError } from "http-errors";
+import express from "express";
+import createHttpError from "http-errors";
+import globalErrorHandler from "./middlewares/globalErrorHandler";
 
 const app = express();
 
@@ -15,14 +15,7 @@ app.get("/", (req, res, next) => {
   });
 });
 
-// Global Error Handler is a special type of middleware (we can say)
-app.use(((err: HttpError, req: Request, res: Response, next: NextFunction) => {
-  const statusCode = err.statusCode || 5000;
-
-  res.status(statusCode).json({
-    message: err.message,
-    errorStack: config.env === "development" ? err.stack : "",
-  });
-}) as express.ErrorRequestHandler);
+// Keep it as the very last of the routes (Global Error Handler)
+app.use(globalErrorHandler);
 
 export default app;
