@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import { User } from "./userTypes";
 
 // 1. Create Schema of our User (How should our document structure look like in the database)
 
-new mongoose.Schema(
+const userSchema = new mongoose.Schema()<User>(
   {
     name: {
       type: String,
@@ -20,3 +21,6 @@ new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+// 2. Create Modal
+export const UserModal = mongoose.model<User>("User", userSchema);
