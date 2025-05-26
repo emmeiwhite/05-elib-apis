@@ -129,3 +129,12 @@ import { config } from "./src/config/config";
 
 console.log(config.port); // Safe and clean
 ```
+
+## ✅ Error Handling is important in NodeJS?
+
+npm i http-errors
+npm i -D @types/http-errors
+
+### Concept of Global Error Handling
+
+request (from Client) ---> router ---> middleware --->requestHandler ---> globalErrorHandler
